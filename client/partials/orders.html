@@ -1,0 +1,56 @@
+<div class="container">
+	<h2>Add a new order</h2>
+	<form class="form-inline">
+		<div class="form-group">
+			<label>Customer:</label>
+			<select class="form-control" name="customer" ng-model="new_order.customer">
+				<option ng-repeat="customer in customers | orderBy: 'name'">{{customer.name}}</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Order:</label>
+			<select class="form-control" name="quantitiy" ng-model="new_order.quantity">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+				<option>10</option>
+			</select>
+			<select class="form-control" name="product" ng-model="new_order.product_name">
+				<option>Nike Shoes</option>
+				<option>Black Belts</option>
+				<option>Ice Creams</option>
+				<option>Candy</option>
+			</select>
+			<input ng-click="addOrder(new_order)" type="submit" class="btn btn-success" value="Order">
+		</div>
+		<div class="col-xs-3 pull-right">
+			<input type="search" ng-model="filter_orders" placeholder="search orders..." class="form-control pull-right">
+		</div>
+	</form>
+	<li ng-repeat="error in errors">{{ error.message }}</li>
+	<h3 ng-show="errors() == true" class="error" style="color:red;">Order form must be filled in!</h3>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Customer Name</th>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="order in orders | filter: filter_orders | orderBy: 'date'">
+				<td ng-bind="order.customer"></td>
+				<td ng-bind="order.product_name"></td>
+				<td ng-bind="order.quantity"></td>
+				<td ng-bind="order.orderDate | date: 'longDate'"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

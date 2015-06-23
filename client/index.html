@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+	<title>MEAN Customers</title>
+</head>
+<body ng-app="mainModule">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav">
+				<li ng-class="{ active: isActive('/orders') }"><a href="#/orders">Orders</a></li>
+				<li ng-class="{ active: isActive('/customers') }"><a href="#/customers">Customers</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div ng-view></div>
+
+	<!-- SCRIPTS -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>​
+	<script type="text/javascript" src="js/externals/angular.js"></script>
+	<script type="text/javascript" src="js/externals/angular-route.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controllers/customers.js"></script>
+	<script type="text/javascript" src="js/controllers/orders.js"></script>
+	<script type="text/javascript" src="js/factories/customers.js"></script>
+	<script type="text/javascript" src="js/factories/orders.js"></script>
+</body>
+</html>
